@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  address: MyString
+  user: one
+  daily_rate: 1
+  conditions: MyString
+  category: one
+
+two:
+  title: MyString
+  description: MyText
+  address: MyString
+  user: two
+  daily_rate: 1
+  conditions: MyString
+  category: two
