@@ -1,1 +1,30 @@
 // Specific CSS for your home-page
+.home-cover {
+
+  position: relative;
+  margin-bottom: 32px;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .home-cover-text {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%); /* iOS */
+    margin: 0;
+    color: $light-gray;
+    text-align: center;
+  }
+
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 56px;
+  width: 100%;
+}

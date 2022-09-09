@@ -1,6 +1,12 @@
-<% if user_signed_in? %>
-  <p>Hello <%= "#{current_user.first_name} #{current_user.last_name}" %></p>
-<% else %>
-  <p>Need to sign in?</p>
-  <%= link_to "Sign in", user_session_path %>
+<div class="home-cover">
+  <%= image_tag "boards-renting-beach.jpg", alt: "Picture of surboards renter", height: 450 %>
+  <div class="home-cover-text">
+    <h1>Sportan</h1>
+    <p>Rent any sport article, anywhere in the world</p>
+  </div>
+</div>
+<h1>Articles to rent</h1>
+<% @articles.each do |article| %>
+  <h3><%= article.title %></h3>
+  <p><%= article.description %></p>
 <% end %>
