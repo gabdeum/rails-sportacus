@@ -6,8 +6,8 @@ class CreateArticles < ActiveRecord::Migration[7.0]
       t.string :address
       t.references :user, null: false, foreign_key: true
       t.integer :daily_rate
-      t.string :conditions
-      t.references :category, null: false, foreign_key: true
+      t.integer :conditions
+      # t.references :category, null: false, foreign_key: true
 
       t.timestamps
     end
