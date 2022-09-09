@@ -1,11 +1,9 @@
 class PagesController < ApplicationController
-  def home
+  before_action :authenticate_user!, only: [:account]
 
+  def home
   end
 
   def account
-    if !user_signed_in?
-      redirect_to :user_session
-    end
   end
 end
