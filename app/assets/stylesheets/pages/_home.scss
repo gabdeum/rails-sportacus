@@ -29,3 +29,27 @@
   width: 100%;
   margin-bottom: 32px;
 }
+
+@media (max-width: 992px) {
+
+  .grid-home {
+    grid-template-columns: 1fr 1fr 1fr
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .grid-home {
+    grid-template-columns: 1fr 1fr
+  }
+
+}
+
+@media (max-width: 576px) {
+
+  .grid-home {
+    grid-template-columns: 1fr
+  }
+
+}

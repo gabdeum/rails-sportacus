@@ -2,6 +2,7 @@ class Article < ApplicationRecord
   belongs_to :user
   has_many :article_reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  has_many_attached :pictures
 
   validates :title, :description, :address, :brand, presence: true
   validates :daily_rate, :minimum_rent_days, presence: true, numericality: { only_integer: true }, comparison: { greater_than: 0 }
