@@ -1,0 +1,42 @@
+.card-home {
+
+  box-shadow: 0 10px 30px rgba(0,0,0,.2);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: $black;
+
+  &:hover {
+    color: $gray;
+  }
+
+  img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .card-home-content {
+
+    padding: 16px;
+    font-size: 14px;
+
+    .card-title {
+      color: $black;
+      font-weight: bolder;
+    }
+
+    .card-overview{
+      font-size: 12px;
+    }
+
+    .card-footer {
+      text-align: right;
+      // display: flex;
+      // justify-content: space-between;
+      // text-align: center;
+    }
+
+  }
+
+}

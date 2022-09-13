@@ -1,5 +1,5 @@
 // Specific CSS for your home-page
-.home-cover {
+.cover-home {
 
   position: relative;
   margin-bottom: 32px;
@@ -9,7 +9,7 @@
     width: 100%;
   }
 
-  .home-cover-text {
+  .cover-text-home {
     position: absolute;
     top: 20%;
     left: 50%;
@@ -22,9 +22,10 @@
 
 }
 
-.home-grid {
+.grid-home {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 56px;
+  gap: 32px;
   width: 100%;
+  margin-bottom: 32px;
 }

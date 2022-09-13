@@ -4,6 +4,6 @@ module HasCharacteristic
   extend ActiveSupport::Concern
 
   included do
-    has_one :characteristic, class_name: "#{name}Characteristic", foreign_key: :article_id
+    has_one :characteristic, class_name: "#{name}Characteristic", foreign_key: :article_id, dependent: :destroy
   end
 end

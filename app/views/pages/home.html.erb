@@ -1,12 +1,21 @@
-<div class="home-cover">
+<div class="cover-home">
   <%= image_tag "boards-renting-beach.jpg", alt: "Picture of surboards renter", height: 450 %>
-  <div class="home-cover-text">
+  <div class="cover-text-home">
     <h1>Sportan</h1>
     <p>Rent any sport article, anywhere in the world</p>
   </div>
 </div>
-<h1>Articles to rent</h1>
-<% @articles.each do |article| %>
-  <h3><%= article.title %></h3>
-  <p><%= article.description %></p>
-<% end %>
+<div class="container">
+  <h1>Articles to rent</h1>
+  <div class="grid-home">
+    <% @articles.each do |article| %>
+      <a href="#" class="card-home">
+        <div class="card-home-content">
+          <div class="card-title"><%= article.title %></div>
+          <div class="card-overview"><%= article.description %></div>
+          <div class="card-footer">$<%= article.daily_rate %> /day</div>
+        </div>
+      </a>
+    <% end %>
+  </div>
+</div>

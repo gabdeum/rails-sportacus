@@ -1,15 +1,24 @@
-<div class="navbar-top">
-  <nav class="navbar">
-    <div class="container-fluid">
-      <%= link_to "Sportan", root_path, class: "btn" %>
-      <div class="d-flex">
-        <% if user_signed_in? %>
-          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-        <% else %>
-          <%= link_to "Login", new_user_session_path, class: "btn" %>
-          <%= link_to "Sign-up", new_user_registration_path, class: "btn" %>
-        <% end %>
-      </div>
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <%= link_to "Sportan", root_path, class: "navbar-brand" %>
+    <div class="d-flex align-items-center">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle fa-solid fa-user" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <% if user_signed_in? %>
+              <li><%= link_to "Account", account_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Add a new article</a></li>
+              <li><a class="dropdown-item" href="#">See all my articles</a></li>
+            <% else %>
+              <li><%= link_to "Login", new_user_session_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Sign-up", new_user_registration_path, class: "dropdown-item" %></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
     </div>
-  </nav>
-</div>
+  </div>
+</nav>
