@@ -1,0 +1,28 @@
+.article-pictures {
+
+  height: 350px;
+  border-radius: 16px;
+  overflow: hidden;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .mobile-hidden {
+    display: none;
+  }
+
+}
+
+@media (max-width: 576px) {
+
+  .article-pictures {
+    border-radius: 0px;
+  }
+
+}

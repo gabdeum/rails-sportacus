@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_13_075307) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_15_111441) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,13 +60,29 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_13_075307) do
     t.bigint "user_id", null: false
     t.integer "daily_rate"
     t.integer "conditions"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "brand"
     t.integer "minimum_rent_days"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["address"], name: "index_articles_on_address"
+    t.index ["brand"], name: "index_articles_on_brand"
     t.index ["title"], name: "index_articles_on_title"
     t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "bike_characteristics", force: :cascade do |t|
+    t.bigint "article_id", null: false
+    t.integer "size"
+    t.string "type"
+    t.string "group"
+    t.string "model"
+    t.integer "material"
+    t.integer "brakes"
+    t.integer "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_bike_characteristics_on_article_id"
   end
 
   create_table "bookings", force: :cascade do |t|
@@ -111,6 +127,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_13_075307) do
   add_foreign_key "article_reviews", "articles"
   add_foreign_key "article_reviews", "users"
   add_foreign_key "articles", "users"
+  add_foreign_key "bike_characteristics", "articles"
   add_foreign_key "bookings", "articles"
   add_foreign_key "bookings", "users"
   add_foreign_key "surfboard_characteristics", "articles"

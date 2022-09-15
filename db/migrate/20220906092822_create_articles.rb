@@ -7,11 +7,14 @@ class CreateArticles < ActiveRecord::Migration[7.0]
       t.references :user, null: false, foreign_key: true
       t.integer :daily_rate
       t.integer :conditions
-      # t.references :category, null: false, foreign_key: true
+      t.string :brand
+      t.integer :minimum_rent_days
+      t.string :type
 
       t.timestamps
     end
     add_index :articles, :title
     add_index :articles, :address
+    add_index :articles, :brand
   end
 end

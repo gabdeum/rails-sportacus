@@ -1,7 +1,7 @@
 require_relative 'concerns/define_article_policies'
 require_relative 'concerns/define_article_scope'
 
-class ArticlePolicy < ApplicationPolicy
+class BikePolicy < ApplicationPolicy
   include ArticlePolicies
 
   class Scope < Scope

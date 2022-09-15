@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  article: one
+  size: 1
+  type: 
+  group: MyString
+  model: MyString
+  material: 1
+  brakes: 1
+  color: 1
+
+two:
+  article: two
+  size: 1
+  type: 
+  group: MyString
+  model: MyString
+  material: 1
+  brakes: 1
+  color: 1
