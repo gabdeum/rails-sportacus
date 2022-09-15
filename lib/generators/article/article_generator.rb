@@ -10,17 +10,18 @@ class ArticleGenerator < Rails::Generators::NamedBase
         include HasCharacteristic
       end
     FILE
-    gsub_file "app/policies/#{file_name}_policy.rb", /(.|\n)*/, "
-    require_relative 'concerns/define_article_policies'
-    require_relative 'concerns/define_article_scope'
+    remove_file "app/policies/#{file_name}_policy.rb"
+    create_file "app/policies/#{file_name}_policy.rb", <<~FILE
+      require_relative 'concerns/define_article_policies'
+      require_relative 'concerns/define_article_scope'
 
-    class #{class_name}Policy < ApplicationPolicy
-      include ArticlePolicies
+      class #{class_name}Policy < ApplicationPolicy
+        include ArticlePolicies
 
-      class Scope < Scope
-        include DefineArticleScope
+        class Scope < Scope
+          include DefineArticleScope
+        end
       end
-    end
-    "
+    FILE
   end
 end
