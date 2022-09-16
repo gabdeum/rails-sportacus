@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="mb-3 integer required characteristic_length col">
+    <%= f.label :length, class: "form-label" %>
+    <div class="input-group mb-3">
+      <input type="number" min="0" class="form-control text-end" name="<%= @characteristic.class.name %>[length1]" id="<%= @characteristic.class.name.downcase %>_title">
+      <span class="input-group-text">'</span>
+      <input type="number" min="0" class="form-control text-end" name="<%= @characteristic.class.name %>[length2]" id="<%= @characteristic.class.name.downcase %>_title">
+      <span class="input-group-text" id="basic-addon">"</span>
+    </div>
+  </div>
+  <div class="mb-3 integer required characteristic_volume col">
+    <%= f.label :volume, class: "form-label" %>
+    <div class="input-group mb-3">
+      <%= f.input_field :volume, min: "1", class: "form-control text-end" %>
+      <span class="input-group-text" id="basic-addon">L</span>
+    </div>
+  </div>
+</div>
+<%= f.input :shape %>
+<%= f.input :pictures, as: :file, input_html: { multiple: true } %>

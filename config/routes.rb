@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "pages#home"
   get "/account", to: "pages#account"
+  get "/articles/new/characteristic", to: "articles#new_characteristic"
   resources :articles
 end

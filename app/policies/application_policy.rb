@@ -24,6 +24,10 @@ class ApplicationPolicy
     create?
   end
 
+  def new_characteristic?
+    create?
+  end
+
   def update?
     false
   end

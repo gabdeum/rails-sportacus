@@ -1,10 +1,27 @@
-require_relative 'concerns/define_article_policies'
-require_relative 'concerns/define_article_scope'
-
 class ArticlePolicy < ApplicationPolicy
-  include ArticlePolicies
-
   class Scope < Scope
-    include DefineArticleScope
+    def resolve
+      scope.where(user: user)
+    end
+  end
+
+  def index?
+    user
+  end
+
+  def show?
+    true
+  end
+
+  def create?
+    user
+  end
+
+  def update?
+    record.user == user
+  end
+
+  def destroy?
+    record.user == user
   end
 end
