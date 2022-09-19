@@ -3,27 +3,27 @@
     <div class="col-12 col-lg-6">
       <h1 class="mt-4"><%= @article.type %> characteristics</h1>
       <%= simple_form_for @characteristic, url: articles_path, method: 'post' do |f| %>
-        <input type="hidden" value="<%= @article.title %>" name="<%= @article.type %>[title]" id="<%= @article.type.downcase %>_title">
-        <input type="hidden" value="<%= @article.description %>" name="<%= @article.type %>[description]" id="<%= @article.type.downcase %>_title">
-        <input type="hidden" value="<%= @article.address %>" name="<%= @article.type %>[address]" id="<%= @article.type.downcase %>_title">
-        <input type="hidden" value="<%= @article.minimum_rent_days %>" name="<%= @article.type %>[minimum_rent_days]" id="<%= @article.type.downcase %>_title">
-        <input type="hidden" value="<%= @article.daily_rate %>" name="<%= @article.type %>[daily_rate]" id="<%= @article.type.downcase %>_title">
-        <input type="hidden" value="<%= @article.conditions %>" name="<%= @article.type %>[conditions]" id="<%= @article.type.downcase %>_title">
-        <input type="hidden" value="<%= @article.brand %>" name="<%= @article.type %>[brand]" id="<%= @article.type.downcase %>_title">
-        <input type="hidden" value="<%= @article.type %>" name="<%= @article.type %>[type]" id="<%= @article.type.downcase %>_title">
-        <input type="hidden" value="<%= @article.type %>" name="type" id="type">
-        <%= render "shared/form_#{@article.type.downcase}_characteristic", f: f %>
+        <% article_type = @article.type.downcase %>
+        <input type="hidden" value="<%= @article.title %>" name="<%= article_type %>[title]" id="<%= article_type %>_title">
+        <input type="hidden" value="<%= @article.description %>" name="<%= article_type %>[description]" id="<%= article_type %>_description">
+        <input type="hidden" value="<%= @article.address %>" name="<%= article_type %>[address]" id="<%= article_type %>_address">
+        <input type="hidden" value="<%= @article.minimum_rent_days %>" name="<%= article_type %>[minimum_rent_days]" id="<%= article_type %>_minimum_rent_days">
+        <input type="hidden" value="<%= @article.daily_rate %>" name="<%= article_type %>[daily_rate]" id="<%= article_type %>_daily_rate">
+        <input type="hidden" value="<%= @article.conditions %>" name="<%= article_type %>[conditions]" id="<%= article_type %>_conditions">
+        <input type="hidden" value="<%= @article.brand %>" name="<%= article_type %>[brand]" id="<%= article_type %>_brand">
+        <input type="hidden" value="<%= @article.type %>" name="<%= article_type %>[type]" id="<%= article_type %>_type">
+        <input type="hidden" value="<%= @article.type.downcase %>" name="type" id="type">
+        <%= render "shared/form_#{article_type}_characteristic", f: f %>
+        <%= f.input :pictures, as: :file, input_html: { multiple: true, name: "#{article_type}[pictures][]", id: "#{article_type}_pictures" } %>
         <div class="row justify-content-between">
           <div class="col-auto">
             <%= link_to new_article_path(article: @article.attributes), class: "btn btn-primary" do %>
               <i class="fa-solid fa-arrow-left"></i> Back</button>
             <% end %>
           </div>
-          <%# <div class="col-auto"><button type="submit" value="Submit" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> Back</button></div> %>
           <div class="col-auto"><button type="submit" value="Submit" class="btn btn-primary">Create <i class="fa-solid fa-plus"></i></button></div>
         </div>
       <% end %>
-
     </div>
   </div>
 </div>

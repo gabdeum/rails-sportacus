@@ -36,6 +36,10 @@ class ApplicationPolicy
     update?
   end
 
+  def edit_characteristic?
+    update?
+  end
+
   def destroy?
     false
   end

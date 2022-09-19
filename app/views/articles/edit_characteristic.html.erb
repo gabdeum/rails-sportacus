@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <h1 class="mt-4"><%= @article.type %> characteristics</h1>
+      <%= simple_form_for @characteristic, url: articles_path, method: 'patch' do |f| %>
+        <% article_type = @article.type.downcase %>
+        <input type="hidden" value="<%= @article.type.downcase %>" name="type" id="type">
+        <%= render "shared/form_#{article_type}_characteristic", f: f %>
+        <%= f.input :pictures, as: :file, input_html: { multiple: true, name: "#{article_type}[pictures][]", id: "#{article_type}_pictures" } %>
+        <div class="row justify-content-between">
+          <div class="col-auto">
+            <%= link_to new_article_path(article: @article.attributes), class: "btn btn-primary" do %>
+              <i class="fa-solid fa-arrow-left"></i> Back</button>
+            <% end %>
+          </div>
+          <div class="col-auto"><button type="submit" value="Submit" class="btn btn-primary">Edit <i class="fa-solid fa-plus"></i></button></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

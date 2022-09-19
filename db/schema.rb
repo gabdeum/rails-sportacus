@@ -98,9 +98,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_15_111441) do
 
   create_table "surfboard_characteristics", force: :cascade do |t|
     t.bigint "article_id", null: false
-    t.string "length"
+    t.integer "foot"
+    t.integer "inch"
     t.integer "volume"
     t.integer "shape"
+    t.integer "fins_setup"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_surfboard_characteristics_on_article_id"

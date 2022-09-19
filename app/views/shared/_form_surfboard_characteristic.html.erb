@@ -2,9 +2,9 @@
   <div class="mb-3 integer required characteristic_length col">
     <%= f.label :length, class: "form-label" %>
     <div class="input-group mb-3">
-      <input type="number" min="0" class="form-control text-end" name="<%= @characteristic.class.name %>[length1]" id="<%= @characteristic.class.name.downcase %>_title">
+      <%= f.input_field :foot, min: "1", class: "form-control text-end" %>
       <span class="input-group-text">'</span>
-      <input type="number" min="0" class="form-control text-end" name="<%= @characteristic.class.name %>[length2]" id="<%= @characteristic.class.name.downcase %>_title">
+      <%= f.input_field :inch, min: "0", max: "11", class: "form-control text-end" %>
       <span class="input-group-text" id="basic-addon">"</span>
     </div>
   </div>
@@ -16,5 +16,7 @@
     </div>
   </div>
 </div>
-<%= f.input :shape %>
-<%= f.input :pictures, as: :file, input_html: { multiple: true } %>
+<div class="row">
+  <div class="col"><%= f.input :shape, collection: SurfboardCharacteristic::SHAPES %></div>
+  <div class="col"><%= f.input :fins_setup, collection: SurfboardCharacteristic::FINS_SETUP %></div>
+</div>
