@@ -33,6 +33,7 @@ class ArticlesController < ApplicationController
       @article.create_characteristic(params["#{@article.type.downcase}_characteristic"]&.permit!)
       redirect_to article_path(@article)
     else
+      @characteristic = Object.const_get("#{@article.type}Characteristic").new(params["#{@article.type.downcase}_characteristic"]&.permit!) if @article.type != ""
       render :new_characteristic, status: :unprocessable_entity
     end
   end
@@ -52,8 +53,8 @@ class ArticlesController < ApplicationController
 
   def update
     authorize @article
-    if @article.update(params_article_all)
-      @article.characteristic.update(params["#{@article.type.downcase}_characteristic"]&.permit!)
+    @article.update(params_article_all) if params_article_all[:pictures] != [""]
+    if @article.characteristic.update(params["#{@article.type.downcase}_characteristic"]&.permit!)
       redirect_to article_path(@article)
     else
       render :edit_characteristic, status: :unprocessable_entity

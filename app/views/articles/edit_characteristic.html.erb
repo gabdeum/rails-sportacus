@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
       <h1 class="mt-4"><%= @article.type %> characteristics</h1>
-      <%= simple_form_for @characteristic, url: articles_path, method: 'patch' do |f| %>
+      <%= simple_form_for @characteristic, url: article_path, method: 'patch' do |f| %>
         <% article_type = @article.type.downcase %>
         <input type="hidden" value="<%= @article.type.downcase %>" name="type" id="type">
         <%= render "shared/form_#{article_type}_characteristic", f: f %>
