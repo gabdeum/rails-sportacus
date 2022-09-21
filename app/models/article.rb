@@ -14,4 +14,7 @@ class Article < ApplicationRecord
   validates_associated :user
 
   enum :conditions, CONDITIONS
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end

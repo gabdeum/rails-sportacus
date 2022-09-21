@@ -2,7 +2,7 @@
 
   position: relative;
 
-  .fab-holder {
+  .fab-multi-holder {
     position: absolute;
     display: block;
     top: 16px;
@@ -11,6 +11,7 @@
   }
 
   .fab-btn {
+    cursor: pointer;
     width: 40px;
     height: 40px;
     background-color: white;
@@ -20,6 +21,24 @@
     text-align: center;
     display: flex;
     align-items: center;
+
+    &:active {
+      box-shadow: 0 10px 30px rgba(0,0,0,.1);
+    }
+  }
+
+  .p-abs-center {
+    position: absolute;
+    z-index: 1;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%); /* iOS */
+
+    i {
+      width: 100%;
+    }
+
   }
 
 }

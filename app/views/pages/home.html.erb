@@ -1,12 +1,11 @@
-<div class="cover-home">
-  <%= image_tag "boards-renting-beach.jpg", alt: "Picture of surboards renter", height: 450 %>
-  <div class="cover-text-home">
-    <h1>Sportan</h1>
-    <p>Rent any sport article, anywhere in the world</p>
+<div class="container" data-controller="scroll-down">
+  <div class="mt-4 map-container fab-container"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      <div class="fab-btn p-abs-center" data-action="click->scroll-down#fabClick"><i class="fa-solid fa-angles-down"></i></div>
   </div>
-</div>
-<div class="container">
-  <h1 class="mt-4">All sports articles to rent</h1>
+  <h1 class="mt-4" data-scroll-down-target="title">All sports articles to rent</h1>
   <div class="grid-home">
     <% @articles.each do |article| %>
       <%= link_to article_path(article), class: "card-home" do %>

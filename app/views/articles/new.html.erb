@@ -6,7 +6,12 @@
         <%= f.input :title %>
         <%= f.input :description %>
         <div class="row align-items-center">
-          <div class="col me-auto"><%= f.input :address %></div>
+          <div class="col me-auto">
+            <%= f.input :address,
+                        required: true,
+                        input_html: { autocomplete: "address", class: "form-control d-none", data: { address_autocomplete_target: "address" } },
+                        wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] }} %>
+          </div>
           <div class="form-check col-auto">
             <input class="form-check-input" type="checkbox" value="true" id="flexCheckChecked" name="use_personnal_address">
             <label class="form-check-label" for="flexCheckChecked">
