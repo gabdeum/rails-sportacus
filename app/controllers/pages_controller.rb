@@ -2,8 +2,13 @@ class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:account]
 
   def home
-    @articles = Article.all
+    if params[:query].present?
+      @articles = Article.search_by_address_type_and_title(params[:query])
+    else
+      @articles = Article.all
+    end
     # The `geocoded` scope filters only flats with coordinates
+    @location = request.location
     @markers = @articles.geocoded.map do |article|
       {
         lat: article.latitude,

@@ -1,7 +1,13 @@
 <nav class="navbar navbar-expand bg-light">
   <div class="container-fluid">
     <%= link_to "Sportan", root_path, class: "navbar-brand" %>
-    <div class="d-flex align-items-center">
+    <form action="/" method="get">
+      <div class="fab-container">
+        <input class="form-control input-pill-rp" type="search" name="query" id="">
+        <button class="fab-btn p-abs-right btn-simple" style="box-shadow: none;" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+    </form>
+    <div class="d-flex align-items-center ms-3">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle fa-solid fa-user" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
