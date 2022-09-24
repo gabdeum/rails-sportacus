@@ -3,7 +3,7 @@
     <%= link_to "Sportan", root_path, class: "navbar-brand" %>
     <form action="/" method="get">
       <div class="fab-container">
-        <input class="form-control input-pill-rp" type="search" name="query" id="">
+        <input class="form-control input-pill-rp" type="search" name="query" id="" value="<%= params[:query] if params[:query].present? %>">
         <button class="fab-btn p-abs-right btn-simple" style="box-shadow: none;" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
       </div>
     </form>

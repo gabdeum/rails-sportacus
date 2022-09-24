@@ -1,0 +1,15 @@
+<div class="row article-pictures mt-2">
+  <div class="col-12 col-md-6 height-100 p-0">
+    <%= cl_image_tag article.pictures[0].key, class: "height-100" %>
+  </div>
+  <div class="mobile-hidden col-12 col-md-6 height-100 p-0 ps-2">
+    <div class="row height-50 m-0">
+      <div class="col-6 height-100 p-0 pb-1 pe-1"><%= cl_image_tag article.pictures[1].key, class: "height-100" %></div>
+      <div class="col-6 height-100 p-0 ps-1 pb-1"><%= cl_image_tag article.pictures[2].key, class: "height-100" %></div>
+    </div>
+    <div class="row height-50 m-0">
+      <div class="col-6 height-100 p-0 pt-1 pe-1"><%= cl_image_tag article.pictures[3].key, class: "height-100" %></div>
+      <div class="col-6 height-100 p-0 ps-1 pt-1"><%= cl_image_tag article.pictures[4].key, class: "height-100" %></div>
+    </div>
+  </div>
+</div>

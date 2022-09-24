@@ -2,6 +2,11 @@
   padding-right: 45px;
   border-radius: 50rem;
   height: 40px;
+
+  &:focus {
+    border: 1px solid #ced4da;
+    box-shadow: none;
+  }
 }
 
 .btn-simple {
