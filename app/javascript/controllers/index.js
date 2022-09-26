@@ -16,5 +16,8 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import ModalImageCarouselController from "./modal_image_carousel_controller"
+application.register("modal-image-carousel", ModalImageCarouselController)
+
 import ScrollDownController from "./scroll_down_controller"
 application.register("scroll-down", ScrollDownController)
