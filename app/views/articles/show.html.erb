@@ -6,4 +6,16 @@
   <% elsif @article.pictures.count >= 1 %>
     <%= render "shared/grid_pictures_#{@article.pictures.count}", article: @article %>
   <% end %>
+  <div class="d-flex">
+    <div class="col-flex show-col-left" style="height: 500px;">
+    </div>
+    <div class="col-flex show-col-right" data-controller="date-picker" style="height: 500px;">
+      <%= form_for @booking, url: 'article_bookings_path' do |f| %>
+        <input type="text" class="form-control" data-date-picker-target="dates">
+        <input type="hidden" name="booking[start_date]" data-date-picker-target="start">
+        <input type="hidden" name="booking[end_date]" data-date-picker-target="end">
+        <%= f.submit class: "btn btn-primary mt-2" %>
+      <% end %>
+    </div>
+  </div>
 </div>

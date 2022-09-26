@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   get "/account", to: "pages#account"
   get "/articles/new/characteristic", to: "articles#new_characteristic"
   get "/articles/:id/edit/characteristic", to: "articles#edit_characteristic", as: "articles_edit_characteristic"
-  resources :articles
+  resources :articles do
+    resources :bookings, only: [:create]
+  end
 end
