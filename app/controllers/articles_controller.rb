@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
 
   def show
     authorize @article
-    @booking = Booking.new()
+    @booking = Booking.new(article_id: @article.id)
   end
 
   def new

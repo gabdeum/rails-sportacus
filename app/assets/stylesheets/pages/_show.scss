@@ -1,11 +1,28 @@
-.show-col-left {
-  width: auto;
-  flex-grow: 1 !important;
+.d-flex-show {
+  display: flex;
+
+  .show-col-left {
+    width: auto;
+    flex-grow: 1 !important;
+  }
+
+  .show-col-right {
+    width: 307.88px;
+  }
 }
 
-.show-col-right {
-  width: 307.88px;
+@media (max-width: 768px) {
+  .d-flex-show {
+    display: block;
+  }
+
+  .show-col-right {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+  }
 }
+
 
 .col-flex {
   flex: auto 0 0;

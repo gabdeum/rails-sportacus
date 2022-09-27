@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :articles do
     resources :bookings, only: [:create]
   end
+  resources :bookings, only: [:show]
 end
