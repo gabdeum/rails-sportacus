@@ -8,20 +8,34 @@
   <% end %>
   <!-- Modal -->
   <div class="modal" data-modal-image-carousel-target="modal" data-action="click->modal-image-carousel#modalClick">
+    <div class="modal-center">
+      <!-- Close button -->
+      <span class="close" data-action="click->modal-image-carousel#closeClick">&times;</span>
 
-    <!-- Close button -->
-    <span class="close" data-action="click->modal-image-carousel#closeClick">&times;</span>
+      <!-- Modal content (image carousel) -->
+      <div class="modal-content">
+        <div class="swiper-container" data-controller="carousel"
+                                      data-carousel-options-value='{
+                                        "pagination": { "el": ".swiper-pagination",
+                                                        "dynamicBullets": "true" },
+                                        "navigation": { "nextEl": ".swiper-button-next",
+                                                        "prevEl": ".swiper-button-prev"}}'>
+          <div class="swiper-wrapper">
+            <% @article.pictures.each do |picture| %>
+              <div class="swiper-slide"><%= cl_image_tag picture.key %></div>
+            <% end %>
+          </div>
 
-    <!-- Modal content (image carousel) -->
-    <div class="modal-content">
-      <div data-controller="carousel" class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">Slide 1</div>
-          <div class="swiper-slide">Slide 2</div>
-          <div class="swiper-slide">Slide 3</div>
+          <!-- Pagination (... or 1/10 or progress bar) -->
+          <div class="swiper-pagination"></div>
+
+          <!-- Navigation buttons (< >) -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
       </div>
     </div>
+
   </div>
   <div class="d-flex">
     <div class="col-flex show-col-left" style="height: 500px;">
