@@ -7,8 +7,11 @@ class Article < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many_attached :pictures
 
+  monetize :price_cents
+
   validates :title, :description, :address, :brand, presence: true
-  validates :daily_rate, :minimum_rent_days, numericality: { only_integer: true }, comparison: { greater_than: 0 }
+  validates :minimum_rent_days, numericality: { only_integer: true }, comparison: { greater_than: 0 }
+  validates :price_cents, comparison: { greater_than_or_equal_to: 0 }
   validates :conditions, :type, presence: true
 
   validates_associated :user

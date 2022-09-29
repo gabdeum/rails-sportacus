@@ -8,7 +8,7 @@
         <input type="hidden" value="<%= @article.description %>" name="<%= article_type %>[description]" id="<%= article_type %>_description">
         <input type="hidden" value="<%= @article.address %>" name="<%= article_type %>[address]" id="<%= article_type %>_address">
         <input type="hidden" value="<%= @article.minimum_rent_days %>" name="<%= article_type %>[minimum_rent_days]" id="<%= article_type %>_minimum_rent_days">
-        <input type="hidden" value="<%= @article.daily_rate %>" name="<%= article_type %>[daily_rate]" id="<%= article_type %>_daily_rate">
+        <input type="hidden" value="<%= money_without_cents @article.price %>" name="<%= article_type %>[price]" id="<%= article_type %>_price">
         <input type="hidden" value="<%= @article.conditions %>" name="<%= article_type %>[conditions]" id="<%= article_type %>_conditions">
         <input type="hidden" value="<%= @article.brand %>" name="<%= article_type %>[brand]" id="<%= article_type %>_brand">
         <input type="hidden" value="<%= @article.type %>" name="<%= article_type %>[type]" id="<%= article_type %>_type">

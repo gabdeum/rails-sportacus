@@ -5,7 +5,6 @@ class CreateArticles < ActiveRecord::Migration[7.0]
       t.text :description
       t.string :address
       t.references :user, null: false, foreign_key: true
-      t.integer :daily_rate
       t.integer :conditions
       t.string :brand
       t.integer :minimum_rent_days

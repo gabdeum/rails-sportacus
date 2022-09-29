@@ -27,7 +27,7 @@
     </div>
     <div class="col-flex show-col-right p-3 rounded-container-shadow"
         data-controller="date-picker"
-        data-date-picker-daily-rate-value="<%= @article.daily_rate %>"
+        data-date-picker-daily-rate-value="<%= money_without_cents @article.price %>"
         data-date-picker-disabled-dates-value="<%= @disabled_dates.to_json %>">
       <%= form_for @booking, url: article_bookings_path(@article) do |f| %>
         <div data-date-picker-target="dates"></div>
@@ -55,8 +55,8 @@
           <p class="flex-grow-1 text-end mx-2 my-1" data-date-picker-target="days"></p>
         </div>
         <div class="d-flex px-2">
-          <p class="mx-2 my-1">Daily rate</p>
-          <p class="flex-grow-1 text-end mx-2 my-1">$ <%= @article.daily_rate %>.00</p>
+          <p class="mx-2 my-1">Price per day</p>
+          <p class="flex-grow-1 text-end mx-2 my-1"><%= humanized_money_with_symbol(@article.price) %>.00</p>
         </div>
         <hr>
         <div class="d-flex px-2">

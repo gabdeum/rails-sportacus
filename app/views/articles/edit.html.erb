@@ -22,11 +22,12 @@
               <span class="input-group-text">days</span>
             </div>
           </div>
-          <div class="mb-3 integer required article_daily_rate col">
-            <%= f.label :daily_rate, class: "form-label" %>
+          <div class="mb-3 integer required article_price col">
+            <%= f.label :price_per_day, class: "form-label" %>
             <div class="input-group mb-3">
               <span class="input-group-text">$</span>
-              <%= f.input_field :daily_rate, class: "form-control text-end", min: "1", label: false %>
+              <%# <%= f.input_field :daily_rate, class: "form-control text-end", min: "1", label: false %>
+              <%= f.input_field :price, class: "form-control text-end", type: "number", value: "#{money_without_cents(@article.price)}", min: "1", label: false %>
               <span class="input-group-text" id="basic-addon2">.00</span>
             </div>
           </div>

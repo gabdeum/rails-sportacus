@@ -22,6 +22,7 @@ class ArticlesController < ApplicationController
   def new
     @article = Article.new(params_article_all)
     authorize @article
+    # raise
   end
 
   def new_characteristic
@@ -30,6 +31,7 @@ class ArticlesController < ApplicationController
     @article.address = current_user.address if params['use_personnal_address']
     @characteristic = Object.const_get("#{@article.type}Characteristic").new if @article.type != ""
     authorize @article
+    # raise
     unless @article.valid?
       render :new, status: :unprocessable_entity
     end
