@@ -1,0 +1,17 @@
+<div class="swiper-container" data-controller="carousel"
+                              data-carousel-options-value='{
+                                "pagination": { "el": ".swiper-pagination",
+                                                "dynamicBullets": "true" },
+                                "navigation": { "nextEl": ".swiper-button-next",
+                                                "prevEl": ".swiper-button-prev"}}'>
+  <div class="swiper-wrapper">
+    <%= yield %>
+  </div>
+
+  <!-- Pagination (... or 1/10 or progress bar) -->
+  <div class="swiper-pagination"></div>
+
+  <!-- Navigation buttons (< >) -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>

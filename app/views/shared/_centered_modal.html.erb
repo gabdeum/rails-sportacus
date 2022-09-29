@@ -1,0 +1,12 @@
+<!-- Modal -->
+  <div class="modal" data-modal-image-carousel-target="modal" data-action="click->modal-image-carousel#modalClick">
+    <div class="modal-center">
+      <!-- Close button -->
+      <span class="close" data-action="click->modal-image-carousel#closeClick">&times;</span>
+
+      <!-- Modal content (image carousel) -->
+      <div class="modal-content">
+        <%= yield %>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,9 @@
+<h2 class="width-100"><%= article.type %> proposed by <%= article.user.first_name %> <%= article.user.last_name %></h2>
+<div class="d-flex">
+  <% if article.brand %>
+    <p class="me-4"><span class="fa-solid fa-tag"></span> <%= article.brand %></p>
+  <% end %>
+  <p class="me-4"><span class="fa-solid fa-hand-sparkles"></span> <%= article.conditions %></p>
+  <p><span class="fa-solid fa-calendar-days"></span> Minimum <%= article.minimum_rent_days %> day(s)</p>
+</div>
+<p><%= article.description %></p>

@@ -7,6 +7,12 @@ class ArticlesController < ApplicationController
 
   def show
     authorize @article
+    @marker = {
+        lat: @article.latitude,
+        lng: @article.longitude,
+        info_window: render_to_string(partial: "shared/info_window", locals: {article: @article}),
+        image_url: helpers.asset_url("marker-logo-#{@article.type.downcase}")
+      } if @article.geocoded?
     @booking = Booking.new(article_id: @article.id)
   end
 

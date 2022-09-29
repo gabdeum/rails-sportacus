@@ -9,5 +9,7 @@ class ArticleGenerator < Rails::Generators::NamedBase
         include HasCharacteristic
       end
     FILE
+    create_file "app/views/shared/_form_#{file_name}_characteristic.html.erb"
+    create_file "app/views/shared/_#{file_name}_details.html.erb"
   end
 end

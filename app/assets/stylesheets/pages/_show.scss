@@ -7,11 +7,12 @@
   }
 
   .show-col-right {
-    width: 307.88px;
+    width: 339.88px;
+    height: min-content;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 990px) {
   .d-flex-show {
     display: block;
   }
@@ -21,6 +22,10 @@
     display: flex;
     justify-content: center;
   }
+}
+
+.flatpickr-calendar {
+  box-shadow: none !important;
 }
 
 

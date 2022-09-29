@@ -7,7 +7,6 @@ export default class extends Controller {
   static values = { dailyRate: Number }
 
   connect() {
-    console.log(typeof(this.dailyRateValue))
     const today  = new Date()
     let options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
     let setDates = (date) => {
@@ -28,6 +27,10 @@ export default class extends Controller {
       onChange: setDates,
       minDate: today
     });
+  }
+
+  disconnect() {
+    this.flatpickr.destroy()
   }
 
 }
