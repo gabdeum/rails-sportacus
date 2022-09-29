@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
         info_window: render_to_string(partial: "shared/info_window", locals: {article: @article}),
         image_url: helpers.asset_url("marker-logo-#{@article.type.downcase}")
       } if @article.geocoded?
+      @disabled_dates = @article.bookings.map { |booking| { from: booking.start_date, to: booking.end_date } }
       render 'articles/show', status: :unprocessable_entity
     end
   end

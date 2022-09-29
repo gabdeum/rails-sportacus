@@ -25,7 +25,10 @@
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-    <div class="col-flex show-col-right p-3 rounded-container-shadow" data-controller="date-picker" data-date-picker-daily-rate-value="<%= @article.daily_rate %>">
+    <div class="col-flex show-col-right p-3 rounded-container-shadow"
+        data-controller="date-picker"
+        data-date-picker-daily-rate-value="<%= @article.daily_rate %>"
+        data-date-picker-disabled-dates-value="<%= @disabled_dates.to_json %>">
       <%= form_for @booking, url: article_bookings_path(@article) do |f| %>
         <div data-date-picker-target="dates"></div>
         <% if @booking.errors.any? %>
