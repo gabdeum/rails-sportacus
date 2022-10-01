@@ -10,5 +10,8 @@ Rails.application.routes.draw do
   resources :articles do
     resources :bookings, only: [:create]
   end
-  resources :bookings, only: [:show]
+  resources :bookings, only: [:show, :create] do
+    resources :payments, only: :new
+  end
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 end

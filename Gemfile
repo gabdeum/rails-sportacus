@@ -61,6 +61,7 @@ gem "pg_search"
 # Payment integration
 gem 'money-rails'
 gem 'stripe'
+gem 'stripe_event'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

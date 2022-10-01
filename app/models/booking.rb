@@ -10,10 +10,16 @@ class Booking < ApplicationRecord
   validate :date_available
   validate :min_rent_days
 
+  monetize :amount_cents
+
+  def days
+    (end_date - start_date + 1).to_i if (end_date.exists? && start_date.exists?)
+  end
+
   private
 
   def date_available
-    if Booking.where("((start_date <= :start_date and :start_date <= end_date) or (start_date <= :end_date and :end_date <= end_date) or (:start_date <= start_date and end_date <= :end_date)) and :article_id = article_id", start_date: start_date, end_date: end_date, article_id: article_id).exists?
+    if Booking.where("((start_date <= :start_date and :start_date <= end_date) or (start_date <= :end_date and :end_date <= end_date) or (:start_date <= start_date and end_date <= :end_date)) and :article_id = article_id AND id != :id", start_date: start_date, end_date: end_date, article_id: article_id, id: id).exists?
       errors.add(:article_id, "already booked on those dates")
     end
   end

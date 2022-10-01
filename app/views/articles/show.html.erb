@@ -63,7 +63,12 @@
           <p class="mx-2 my-1"><b>Total</b></p>
           <p class="flex-grow-1 text-end mx-2 my-1" data-date-picker-target="total"><b></b></p>
         </div>
-        <%= f.submit class: "btn btn-primary mt-2" %>
+        <% if user_signed_in? %>
+          <%= f.submit class: "btn btn-primary mt-2" %>
+        <% else %>
+          <p class="error-messages">You need to sign-in to book this article</p>
+          <%= f.submit class: "btn btn-primary mt-2", disabled: true %>
+        <% end %>
       <% end %>
     </div>
   </div>
