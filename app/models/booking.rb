@@ -13,7 +13,7 @@ class Booking < ApplicationRecord
   monetize :amount_cents
 
   def days
-    (end_date - start_date + 1).to_i if (end_date.exists? && start_date.exists?)
+    (end_date - start_date + 1).to_i if (end_date.present? && start_date.present?)
   end
 
   private
